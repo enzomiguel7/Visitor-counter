@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+
+  mariadb:
+    image: mariadb:11
+    environment:
+      MARIADB_ROOT_PASSWORD: 0000
+      MARIADB_DATABASE: RegistrosSensor
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: mariadb
+      DB_USER: root
+      DB_PASS: 0000
+      DB_NAME: RegistrosSensor
+      MQTT_BROKER_URL: mqtt://mosquitto:1883
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mosquitto
+      - mariadb
+
+volumes:
+  mariadb_data:

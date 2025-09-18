@@ -31,7 +31,7 @@ export class RegisterComponent {
       return;
     }
 
-    this.http.post('http://localhost:3000/register', {
+    this.http.post('http://localhost:4000/register', {
       username: this.nome,
       email: this.email,
       password: this.senha
