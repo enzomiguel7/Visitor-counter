@@ -4,7 +4,7 @@ services:
     ports:
       - "1883:1883"
     volumes:
-      - ./mosquitto/config:/mosquitto/config
+      - ./backend/mosquitto/config:/mosquitto/config
 
   mariadb:
     image: mariadb:12
@@ -17,7 +17,7 @@ services:
       - mariadb_data:/var/lib/mysql
 
   backend:  # <-- tem que estar dentro de "services:", alinhado com "mariadb" e "mosquitto"
-    build: ./backend
+    build: ./backend/DockerBuild
     environment:
       DB_HOST: mariadb
       DB_USER: root
