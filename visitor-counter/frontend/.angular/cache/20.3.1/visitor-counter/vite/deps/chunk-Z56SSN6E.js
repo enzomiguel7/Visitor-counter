@@ -30,10 +30,6 @@ var __objRest = (source, exclude) => {
     }
   return target;
 };
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 
 export {
@@ -41,6 +37,5 @@ export {
   __spreadProps,
   __name,
   __objRest,
-  __export,
   __publicField
 };

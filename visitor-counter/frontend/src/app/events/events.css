@@ -1,0 +1,58 @@
+/* Estilos para a Seção da Tabela */
+.table-section {
+    width: 90%;
+    max-width: 1000px; 
+    margin: 40px auto; /* Centraliza a seção da tabela na página */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-sizing: border-box; /* ADICIONADO: garantir cálculo correto de padding */
+    max-height: calc(100vh - 120px); /* ADICIONADO: limita a altura para poder rolar */
+    overflow: auto; /* ADICIONADO: permite scroll quando conteúdo ultrapassar a altura */
+}
+
+.table-section h1 {
+    text-align: center;
+    color: #2c3e50; 
+    margin-bottom: 30px;
+    font-size: 2em;
+    border-bottom: 2px solid #3498db; /* Linha azul sob o título */
+    padding-bottom: 15px;
+    display: inline-block;
+    margin-left: 50%;
+    transform: translateX(-50%); /* Centraliza o título e a linha */
+}
+
+/* Estilos da Tabela em si */
+.visitor-table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    table-layout: fixed; /* ADICIONADO: reduz risco de overflow horizontal */
+    word-wrap: break-word; /* ADICIONADO: quebra células com conteúdo grande */
+}
+
+.visitor-table thead {
+    background-color: #3498db; /* Azul vibrante para o cabeçalho */
+    color: white;
+    text-align: left;
+}
+
+.visitor-table th,
+.visitor-table td {
+    padding: 12px 15px; 
+    border: 1px solid #ddd; 
+    text-align: left;
+}
+
+.visitor-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Listras zebradas */
+}
+
+.visitor-table tbody tr:hover {
+    background-color: #e0f7fa; /* Efeito ao passar o mouse */
+    cursor: pointer;
+}
+

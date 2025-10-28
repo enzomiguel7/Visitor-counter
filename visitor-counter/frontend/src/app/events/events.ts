@@ -7,6 +7,7 @@ import { SensorService } from '../services/sensor.services';
   standalone: true, // 👈 se ainda não tiver
   imports: [CommonModule, DatePipe], // 👈 adiciona aqui
   templateUrl: './events.html',
+  styleUrls: ['./events.css']
 })
 export class EventsComponent implements OnInit {
   events: any[] = [];
