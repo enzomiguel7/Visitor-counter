@@ -1,0 +1,152 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-height: 75px;
+    width: auto;
+    display: block;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    padding: 50px;
+}
+
+.content {
+    max-width: 40%;
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.subtitle {
+    font-size: 2.5em;
+    font-weight: 500;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.view-dashboard {
+    background: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.view-dashboard:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.graphic-circle {
+    width: 300px;
+    height: 300px;
+    border: 5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.footer-buttons {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+    border-top: none;
+    position: relative;
+}
+
+.footer-item {
+    padding: 0 10px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 150px;
+}
+
+.btn-primary {
+    background-color: var(--text-color);
+    color: var(--accent-blue);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+}
+
+.footer-social {
+    position: absolute;
+    right: 50px;
+}
+
+.footer-social a {
+    color: var(--text-color);
+    font-size: 1.2em;
+    margin-left: 15px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .content h1 {
+        font-size: 2.5em;
+        white-space: normal;
+    }
+
+    .subtitle {
+        font-size: 1.5em;
+    }
+
+    .footer-buttons {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .footer-item {
+        margin-bottom: 10px;
+    }
+
+    .footer-social {
+        position: static;
+        margin-top: 10px;
+    }
+}
