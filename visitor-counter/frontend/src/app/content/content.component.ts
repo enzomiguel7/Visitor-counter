@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './content.html',
-  styleUrls: ['./content.css']
+  styleUrls: ['./content.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContentComponent {
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common'; // 👈 importa aqui
 import { SensorService } from '../services/sensor.services';
 
@@ -7,7 +7,9 @@ import { SensorService } from '../services/sensor.services';
   standalone: true, // 👈 se ainda não tiver
   imports: [CommonModule, DatePipe], // 👈 adiciona aqui
   templateUrl: './events.html',
-  styleUrls: ['./events.css']
+  styleUrls: ['./events.css'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class EventsComponent implements OnInit {
   events: any[] = [];

@@ -1,21 +1,99 @@
-<div class="table-section">
-    <h1>Registro de Visitantes</h1>
-    <table class="visitor-table">
-        <thead>
-            <tr>
-                <th>Id do sensor</th>
-                <th>Tipo do sensor</th>
-                <th>Data</th>
-                <th>Hora</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let ev of events">
-                <td>{{ev.sensor_id}}</td>
-                <td>{{ev.type}}</td>
-                <td>{{ev.date_}}</td>
-                <td>{{ev.time_}}</td>
-            </tr>
-        </tbody>
-    </table>
+<!-- IMPORTAR NO index.html GLOBAL:
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+-->
+
+<div class="dashboard-container">
+        
+    <aside class="sidebar">
+        <div class="logo-area">
+            <span class="material-symbols-outlined logo-icon">auto_stories</span>
+            <span class="logo-text">LibraryFlow</span>
+        </div>
+
+        <nav class="main-nav">
+            <a routerLink="/inicio" class="nav-item">
+                <span class="material-symbols-outlined">home</span> Início
+            </a>
+
+            <a routerLink="/relatorios" class="nav-item active">
+                <span class="material-symbols-outlined">bar_chart</span> Relatórios
+            </a>
+
+            <a routerLink="/configuracoes" class="nav-item">
+                <span class="material-symbols-outlined">settings</span> Configurações
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a routerLink="/ajuda" class="nav-item">
+                <span class="material-symbols-outlined">help</span> Ajuda
+            </a>
+        </div>
+    </aside>
+
+    <main class="content-area">
+
+        <header class="header-toolbar">
+            <div class="user-profile">
+                <span>Olá, Ana!</span>
+            </div>
+        </header>
+
+        <section class="reports-grid">
+
+            <div class="card monthly-flow">
+                <div class="card-header">
+                    <h2 class="card-title">Análise de Fluxo de Pessoas</h2>
+                    <div class="header-actions">
+                        <span class="date-range"></span>
+                    </div>
+                </div>
+
+                <div class="card-body monthly-flow-body">
+                    <div class="chart-container">
+                        <div class="table-section" style="max-height: 100%; width: 100%; box-shadow: none; padding: 10px;">
+                            <h1>Registro de Visitantes</h1>
+
+                            <table class="visitor-table">
+                                <thead>
+                                    <tr>
+                                        <th>Id do sensor</th>
+                                        <th>Tipo do sensor</th>
+                                        <th>Data</th>
+                                        <th>Hora</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let ev of events">
+                                        <td>{{ev.sensor_id}}</td>
+                                        <td>{{ev.type}}</td>
+                                        <td>{{ev.date_}}</td>
+                                        <td>{{ev.time_}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-cards-container">
+                <div class="card small-card metric-card">
+
+                    <div class="card-header">
+                        <h3 class="card-title">Horário de Pico</h3>
+                    </div>
+
+                    <div class="card-body big-metric-body">
+                        <span class="metric-value">17:00h</span>
+                        <img class="metric-illustration" src="assets/correndo.jpg" alt="Pessoa correndo">
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
 </div>
