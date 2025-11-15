@@ -1,13 +1,13 @@
 <!-- HEADER -->
-<header class="header">
+<header class="header" [class.scrolled]="isHeaderScrolled">
     <div class="header-content">
-        <a href="#" class="logo">
+        <a routerLink="/home" class="logo">
             <span class="material-symbols-outlined">auto_stories</span>
             LibraryFlow
         </a>
         <div class="header-buttons">
-            <a href="../teste/index.html" class="btn-login">Login</a>
-            <a href="../teste/index.html" class="btn-cadastro">Cadastrar</a>
+            <a routerLink="/login" class="btn-login">Login</a>
+            <a routerLink="/register" class="btn-cadastro">Cadastrar</a>
         </div>
     </div>
 </header>
@@ -18,7 +18,7 @@
         <h1>Transforme Dados de Fluxo em Decisões Estratégicas</h1>
         <p>O LibraryFlow mede e analisa o fluxo de pessoas em tempo real, permitindo que você otimize recursos, melhore a experiência e tome decisões baseadas em dados reais.</p>
         <div class="hero-buttons">
-            <a href="../teste/index.html" class="btn-primary">Começar Agora</a>
+            <a routerLink="/register" class="btn-primary">Começar Agora</a>
         </div>
     </div>
 </section>
@@ -224,7 +224,7 @@
     <div class="cta-content">
         <h2>Pronto para Otimizar seu Fluxo?</h2>
         <p>Junte-se às organizações que já utilizam dados inteligentes para melhorar a gestão de espaços e recursos.</p>
-        <a href="../teste/index.html" class="btn-primary">Comece Gratuitamente</a>
+        <a routerLink="/register" class="btn-primary">Comece Gratuitamente</a>
     </div>
 </section>
 
@@ -261,10 +261,10 @@
             <h3>Informações</h3>
             <nav>
                 <ul>
-                    <li><a href="../teste/index.html">Dashboard</a></li>
-                    <li><a href="../teste/relatorios.html">Relatórios</a></li>
-                    <li><a href="../teste/configuracoes.html">Configurações</a></li>
-                    <li><a href="../teste/ajuda.html">Central de Ajuda</a></li>
+                    <li><a routerLink="/content">Dashboard</a></li>
+                    <li><a routerLink="/events">Relatórios</a></li>
+                    <li><a routerLink="/event-chart">Configurações</a></li>
+                    <li><a href="#">Central de Ajuda</a></li>
                 </ul>
             </nav>
         </div>

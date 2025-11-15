@@ -8,10 +8,12 @@ import {EventChart} from './event-chart/event-chart'
 import { AuthGuard } from './auth-guard';
 
 export const appRoutes: Routes = [
-  { path: 'events', component: EventsComponent, canActivate: [AuthGuard]},
-  {path: 'charts', component: EventChart, canActivate:[AuthGuard]},
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'content', component: ContentComponent, canActivate: [AuthGuard] },
+  { path: 'events', component: EventsComponent, canActivate: [AuthGuard]},
+  { path: 'charts', component: EventChart, canActivate:[AuthGuard]},
+  { path: 'event-chart', component: EventChart, canActivate:[AuthGuard]},
 ];
