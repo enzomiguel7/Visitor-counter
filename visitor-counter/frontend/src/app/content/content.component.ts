@@ -1,19 +1,96 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { SensorService } from '../services/sensor.services';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-content',
+  standalone: true,
+  imports: [CommonModule, NgApexchartsModule],
   templateUrl: './content.html',
   styleUrls: ['./content.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ContentComponent {
+export class ContentComponent implements OnInit {
+  chartOptions: any = null;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private sensorService: SensorService
+  ) {}
+
+  ngOnInit() {
+    this.loadChartData();
+  }
+
+  loadChartData() {
+    this.sensorService.getEvents().subscribe((data: any[]) => {
+      const grouped = data.reduce((acc, ev) => {
+        // Evita entradas faltando dados
+        if (!ev || !ev.date_ || !ev.time_) return acc;
+
+        // Parse de date_ suportando "DD/MM/YYYY" e "YYYY-MM-DD"
+        let year: number, month: number, day: number;
+        if (ev.date_.includes('/')) {
+          const parts = ev.date_.split('/');
+          if (parts.length !== 3) return acc;
+          day = parseInt(parts[0], 10);
+          month = parseInt(parts[1], 10);
+          year = parseInt(parts[2], 10);
+        } else if (ev.date_.includes('-')) {
+          const parts = ev.date_.split('-');
+          if (parts.length !== 3) return acc;
+          year = parseInt(parts[0], 10);
+          month = parseInt(parts[1], 10);
+          day = parseInt(parts[2], 10);
+        } else {
+          return acc;
+        }
+
+        // Parse de time_ (HH:mm[:ss])
+        const tparts = ev.time_.split(':');
+        const hour = parseInt(tparts[0] || '0', 10);
+        const minute = parseInt(tparts[1] || '0', 10);
+        if (isNaN(year) || isNaN(month) || isNaN(day) || isNaN(hour)) return acc;
+
+        // Cria Date local a partir dos componentes
+        const dt = new Date(year, month - 1, day, hour, minute);
+        const brasilHour = dt.getHours();
+
+        const hourLabel = `${brasilHour.toString().padStart(2, '0')}:00`;
+        acc[hourLabel] = (acc[hourLabel] || 0) + 1;
+        return acc;
+      }, {} as Record<string, number>);
+
+      const sortedKeys = Object.keys(grouped).sort((a, b) => {
+        const aHour = parseInt(a.split(':')[0], 10);
+        const bHour = parseInt(b.split(':')[0], 10);
+        return aHour - bHour;
+      });
+
+      // Se não houver dados, exibe um fallback para que o gráfico não fique invisível
+      if (sortedKeys.length === 0) {
+        this.chartOptions = {
+          series: [1],
+          chart: { type: 'pie' },
+          labels: ['Sem dados'],
+          title: { text: 'Distribuição de Eventos por Horário' },
+        };
+        return;
+      }
+
+      this.chartOptions = {
+        series: sortedKeys.map(k => grouped[k]),
+        chart: { type: 'pie' },
+        labels: sortedKeys,
+        title: { text: 'Distribuição de Eventos por Horário' },
+      };
+    });
+  }
 
   logout() {
     localStorage.removeItem('token');
-    // Aqui você pode chamar seu serviço de autenticação para remover tokens/session
     console.log('Logout efetuado');
     this.router.navigate(['/login']);
   }
@@ -21,16 +98,6 @@ export class ContentComponent {
   goToEvents() {
     this.router.navigate(['/events']);
   }
-
-  goToCharts() {
-    this.router.navigate(['/charts']);
-  }
-
-  goToContent() {
-    this.router.navigate(['/content']);
-  }
-
-
 }
 
 

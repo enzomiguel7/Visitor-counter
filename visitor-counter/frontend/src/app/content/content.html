@@ -43,7 +43,17 @@
                 </div>
 
                 <div class="card-body flow-content full-flow-content">
-                    <div class="chart-placeholder line-chart full-chart"></div>
+                                        <div class="chart-placeholder line-chart full-chart">
+                                                <div class="chart-container">
+                                                    <apx-chart
+                                                        *ngIf="chartOptions"
+                                                        [series]="chartOptions.series"
+                                                        [chart]="chartOptions.chart"
+                                                        [labels]="chartOptions.labels"
+                                                        [title]="chartOptions.title"
+                                                    ></apx-chart>
+                                                </div>
+                                        </div>
 
                     <div class="total-indicator">
                         <div class="circle-chart">
