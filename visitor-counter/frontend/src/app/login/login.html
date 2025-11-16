@@ -1,59 +1,89 @@
-<div class="registration-container">
+<div class="login-page">
+    
+    <!-- Left Side - Welcome Section -->
+    <div class="welcome-side">
+        <div class="welcome-content">
+            <div class="logo-area">
+                <span class="material-symbols-outlined logo-icon">bar_chart</span>
+                <span class="logo-text">SenseFlow</span>
+            </div>
+            <h1 class="welcome-title">Bem-vindo<br>de volta!</h1>
+        </div>
+    </div>
 
-  <!-- ----------------- LADO ESQUERDO: FORMULÁRIO ----------------- -->
-  <div class="form-side">
+    <!-- Right Side - Login Form -->
+    <div class="form-side">
+        <div class="form-container">
+            
+            <!-- Header -->
+            <div class="form-header">
+                <h2>Login</h2>
+                <p>Bem-vindo de volta! Por favor, faça login na sua conta.</p>
+            </div>
 
-      <h1>Inicie seu login</h1>
+            <!-- Login Form -->
+            <form class="login-form" (ngSubmit)="onLogin()" #loginForm="ngForm">
+                
+                <!-- User Name Field -->
+                <div class="form-group">
+                    <label for="email">Nome de Usuário</label>
+                    <input 
+                        type="email"
+                        id="email"
+                        class="form-input"
+                        placeholder="usuario@gmail.com"
+                        [(ngModel)]="email"
+                        name="email"
+                        required
+                        email
+                    >
+                </div>
 
-      <form (ngSubmit)="onLogin()">
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input 
+                        type="password"
+                        id="senha"
+                        class="form-input"
+                        placeholder="**********"
+                        [(ngModel)]="senha"
+                        name="senha"
+                        required
+                    >
+                </div>
 
-          <!-- Email -->
-          <div class="input-group">
-              <label for="email">E-mail</label>
-              <input 
-                  type="email"
-                  id="email"
-                  placeholder="Digite seu e-mail"
-                  [(ngModel)]="email"
-                  name="email"
-                  required
-              >
-          </div>
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe">
+                        <span>Lembrar-me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                </div>
 
-          <!-- Senha -->
-          <div class="input-group">
-              <label for="senha">Senha</label>
-              <input 
-                  type="password"
-                  id="senha"
-                  placeholder="Insira sua senha"
-                  [(ngModel)]="senha"
-                  name="senha"
-                  required
-              >
-          </div>
-      
-          <!-- Botão -->
-          <button type="submit" class="sign-up-button">
-              Entrar
-          </button>
+                <!-- Login Button -->
+                <button 
+                    type="submit" 
+                    class="btn-login"
+                    [disabled]="loginForm.invalid"
+                >
+                    Login
+                </button>
 
-      </form>
+                <!-- Alert Message -->
+                <div *ngIf="message" class="alert-message" [class.error]="isError" [class.success]="!isError">
+                    {{ message }}
+                </div>
 
-      <!-- Mensagem de retorno (igual no antigo) -->
-      <p>{{ message }}</p>
+                <!-- Signup Link -->
+                <div class="signup-text">
+                    Novo usuário? <a routerLink="/register" class="signup-link">Cadastre-se</a>
+                </div>
 
-      <!-- Links -->
-      <p class="login-link">
-          Não possui uma conta?
-          <a (click)="redirectToRegister()" style="cursor: pointer;">Fazer Cadastro</a>
-      </p>
+            </form>
 
-  </div>
-
-  <!-- ----------------- LADO DIREITO: ILUSTRAÇÃO ----------------- -->
-  <div class="illustration-side">
-      <img src="assets/imagelogin.png" alt="Ilustração de cadastro e segurança">
-  </div>
+        </div>
+    </div>
 
 </div>

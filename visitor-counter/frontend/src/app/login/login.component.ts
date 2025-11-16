@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './login.html',
   styleUrls: ['./login.css']
 })
@@ -15,12 +15,14 @@ export class LoginComponent {
   email = '';
   senha = '';
   message = '';
+  isError = false;
+  rememberMe = false;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   onLogin() {
     if (!this.email || !this.senha) {
-      this.message = 'Preencha todos os campos';
+      this.showMessage('Preencha todos os campos', true);
       return;
     }
 
@@ -30,10 +32,16 @@ export class LoginComponent {
     }).subscribe({
       next: (res) => {
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/content']);
+        this.showMessage('Login realizado com sucesso!', false);
+        setTimeout(() => this.router.navigate(['/content']), 1000);
       },
-      error: (err) => this.message = err.error?.error || 'Erro no login'
+      error: (err) => this.showMessage(err.error?.error || 'Erro ao fazer login', true)
     });
+  }
+
+  showMessage(msg: string, error: boolean) {
+    this.message = msg;
+    this.isError = error;
   }
 
   redirectToRegister() {
