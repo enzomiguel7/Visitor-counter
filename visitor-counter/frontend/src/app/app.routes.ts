@@ -10,14 +10,14 @@ import { SaibaMaisComponent } from './saiba-mais/saiba-mais.component';
 import { ComoFuncionaComponent } from './como-funciona/como-funciona.component';
 
 export const appRoutes: Routes = [
-  { path: '', component: HomeComponent, data: { animation: 'HomePage' } },
-  { path: 'home', component: HomeComponent, data: { animation: 'HomePage' } },
-  { path: 'saiba-mais', component: SaibaMaisComponent, data: { animation: 'SaibaMaisPage' } },
-  { path: 'como-funciona', component: ComoFuncionaComponent, data: { animation: 'ComoFuncionaPage' } },
-  { path: 'register', component: RegisterComponent, data: { animation: 'RegisterPage' } },
-  { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' } },
-  { path: 'content', component: ContentComponent, canActivate: [AuthGuard], data: { animation: 'ContentPage' } },
-  { path: 'events', component: EventsComponent, canActivate: [AuthGuard], data: { animation: 'EventsPage' } },
-  { path: 'charts', component: EventChart, canActivate:[AuthGuard], data: { animation: 'ChartsPage' } },
-  { path: 'event-chart', component: EventChart, canActivate:[AuthGuard], data: { animation: 'EventChartPage' } },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'saiba-mais', component: SaibaMaisComponent },
+  { path: 'como-funciona', component: ComoFuncionaComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'content', component: ContentComponent, canActivate: [AuthGuard] },
+  { path: 'events', component: EventsComponent, canActivate: [AuthGuard]},
+  { path: 'charts', component: EventChart, canActivate:[AuthGuard]},
+  { path: 'event-chart', component: EventChart, canActivate:[AuthGuard]},
 ];
