@@ -6,29 +6,28 @@
             <span class="logo-text">LibraryFlow</span>
         </div>
 
-       <nav class="main-nav"> 
-        <button class="nav-item active" (click)="goToEvents()">
-            <span class="material-symbols-outlined">home</span> Início
-        </button>
+        <nav class="main-nav">
+            <button class="nav-item active" (click)="goToEvents()">
+                <span class="material-symbols-outlined">home</span> Início
+            </button>
 
-        <button class="nav-item" (click)="goToEvents()">
-            <span class="material-symbols-outlined">bar_chart</span> Relatórios
-        </button>
+            <button class="nav-item" (click)="goToEvents()">
+                <span class="material-symbols-outlined">bar_chart</span> Relatórios
+            </button>
 
-        <button class="nav-item" (click)="goToEvents()">
-            <span class="material-symbols-outlined">settings</span> Configurações
-        </button>
-    </nav>
+            <button class="nav-item" (click)="goToEvents()">
+                <span class="material-symbols-outlined">settings</span> Configurações
+            </button>
+        </nav>
 
         <div class="sidebar-footer">
-            <a routerLink="/ajuda" class="nav-item" data-text="Ajuda">
+            <a routerLink="/ajuda" class="nav-item">
                 <span class="material-symbols-outlined">help</span> Ajuda
             </a>
         </div>
     </aside>
 
     <main class="content-area">
-
         <header class="header-toolbar">
             <div class="user-profile">
                 <span>Olá, Ana!</span>
@@ -36,36 +35,25 @@
         </header>
 
         <section class="dashboard-grid">
-
-            <div class="card big-card full-width-card">
+            <div class="card chart-card">
                 <div class="card-header">
                     <h2 class="card-title">Fluxo de Pessoas (Tempo Real)</h2>
                 </div>
 
-                <div class="card-body flow-content full-flow-content">
-                                        <div class="chart-placeholder line-chart full-chart">
-                                                <div class="chart-container">
-                                                    <apx-chart
-                                                        *ngIf="chartOptions"
-                                                        [series]="chartOptions.series"
-                                                        [chart]="chartOptions.chart"
-                                                        [labels]="chartOptions.labels"
-                                                        [title]="chartOptions.title"
-                                                    ></apx-chart>
-                                                </div>
-                                        </div>
-
-                    <div class="total-indicator">
-                        <div class="circle-chart">
-                            <span class="total-number">358</span>
-                        </div>
-                        <span class="total-label">Entradas Hoje</span>
+                <div class="card-body">
+                    <div class="chart-wrapper">
+                        <apx-chart
+                            *ngIf="chartOptions"
+                            [series]="chartOptions.series"
+                            [chart]="chartOptions.chart"
+                            [labels]="chartOptions.labels"
+                            [title]="chartOptions.title"
+                            [legend]="chartOptions.legend"
+                            [dataLabels]="chartOptions.dataLabels"
+                        ></apx-chart>
                     </div>
                 </div>
             </div>
-
         </section>
-
     </main>
-
 </div>
