@@ -216,11 +216,11 @@ body {
     display: flex;
     justify-content: flex-end; /* Alinhamento alterado para a direita */
     align-items: center;
-    padding: 10px 20px;
+    padding: clamp(12px, 2vw, 18px) clamp(16px, 2vw, 24px);
     background-color: var(--color-card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
+   margin-bottom: clamp(16px, 2vw, 24px);
     flex-shrink: 0;
     /* Linha de destaque para integrar ao design */
     border-left: 5px solid var(--color-highlight); 
@@ -244,7 +244,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 0; /* Remover padding padrão para controlar com card-body */
+    padding: 2; /* Remover padding padrão para controlar com card-body */
     margin-bottom: 20px;
 }
 

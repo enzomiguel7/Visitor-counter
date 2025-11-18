@@ -163,15 +163,15 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: clamp(12px, 2vw, 18px) clamp(16px, 2vw, 24px);
+    /* reduzido para ficar igual ao header do content.css */
+    padding: 10px 20px;
     background-color: var(--color-card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: clamp(16px, 2vw, 24px);
+    margin-bottom: 16px;
     border-left: 5px solid var(--color-highlight);
     flex-shrink: 0;
 }
-
 .user-profile span {
     font-size: 16px;
     font-weight: 500;
