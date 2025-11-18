@@ -125,4 +125,8 @@ export class ContentComponent implements OnInit {
   goToEvents() {
     this.router.navigate(['/events']);
   }
+
+    redirectToSettings() {
+    this.router.navigate(['/charts']);
+  }
 }
