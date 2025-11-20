@@ -117,6 +117,25 @@ app.get("/api/events", async (req, res) => {
   }
 });
 
+
+app.delete("/api/events", async (req, res) => {
+  try {
+    const conn = await pool.getConnection();
+    await conn.query("DELETE FROM sensor_events;");
+    conn.release();
+
+    res.status(200).json({message: "Dados apagados com êxito"})
+
+    // Opcional: notifica front-end via socket
+    io.emit("reset_events")
+
+    console.log("Todos os registros foram apagados do DB");
+  } catch(err){
+    console.error("Erro ao resetar eventos:", err);
+    res.status(500).json({error: "Erro ao resetar eventos"});
+  }
+});
+
 /* ============ START SERVER ============ */
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log("🚀 Server rodando na porta", PORT));

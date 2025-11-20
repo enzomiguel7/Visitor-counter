@@ -93,4 +93,18 @@ export class EventChart implements OnInit {
       };
     });
   }
+
+  onResetEvents() {
+    if (confirm("Tem certeza que deseja apagar todos os registros?")) {
+      this.sensorService.resetEvents().subscribe({
+        next: (res) => {
+          alert(res.message || "Registros apagados com êxito.");
+        },
+        error: (err) => {
+          console.error(err);
+          alert("ocorreu um erro ao resetar os registros."); 
+        }
+      });
+    }
+  }
 }

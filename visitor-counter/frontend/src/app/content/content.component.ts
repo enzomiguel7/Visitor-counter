@@ -116,6 +116,7 @@ export class ContentComponent implements OnInit {
       };
     });
   }
+  
 
   logout() {
     localStorage.removeItem('token');

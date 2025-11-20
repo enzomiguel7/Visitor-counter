@@ -721,3 +721,25 @@ body {
         gap: 16px;
     }
 }
+
+.table-section {
+    max-height: 300px; /* ou ajuste a altura conforme necessário */
+    overflow-y: auto;
+    border: 1px solid var(--color-divider); /* opcional: para delimitar a área da tabela */
+    border-radius: 8px;
+}
+
+/* Opcional: estilizar a barra de rolagem para navegadores Webkit */
+.table-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-section::-webkit-scrollbar-thumb {
+    background-color: var(--color-highlight);
+    border-radius: 4px;
+}
+
+.table-section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}

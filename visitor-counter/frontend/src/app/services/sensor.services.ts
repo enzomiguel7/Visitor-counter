@@ -14,4 +14,8 @@ export class SensorService {
     if (sensorId) params.sensorId = sensorId;
     return this.http.get<any[]>(this.apiUrl, { params });
   }
+
+  resetEvents(): Observable<any> {
+    return this.http.delete(this.apiUrl);
+  }
 }
