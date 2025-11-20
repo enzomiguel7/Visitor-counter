@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     },
     {
       question: 'Os dados coletados são seguros e estão em conformidade com a LGPD?',
-      answer: 'Sim, totalmente! Todos os dados são anonimizados e criptografados. Não coletamos informações pessoais identificáveis. Nossa plataforma está em total conformidade com a Lei Geral de Proteção de Dados (LGPD) e melhores práticas de segurança da informação.',
+      answer: 'Sim, totalmente! Todos os dados são anonimizados. Não coletamos informações pessoais identificáveis. Nossa plataforma está em total conformidade com a Lei Geral de Proteção de Dados (LGPD) e melhores práticas de segurança da informação.',
       isOpen: false
     },
     {

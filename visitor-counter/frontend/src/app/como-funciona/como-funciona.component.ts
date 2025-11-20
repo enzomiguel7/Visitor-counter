@@ -14,56 +14,44 @@ export class ComoFuncionaComponent implements OnInit {
     {
       number: '01',
       icon: 'sensors',
-      title: 'Sensores Infravermelhos',
-      description: 'Sensores de alta precisão detectam a passagem de pessoas através de feixes infravermelhos invisíveis posicionados na entrada.',
+      title: 'Sensores Inteligentes',
+      description: 'Sensores de alta precisão detectam a passagem de pessoas através de tecnologia avançada posicionada estrategicamente na entrada.',
       details: [
         'Detecção bidirecional (entrada e saída)',
         'Alcance de até 5 metros',
-        'Imune à luz ambiente',
+        'Precisão em diferentes condições',
         'Baixo consumo de energia'
       ]
     },
     {
       number: '02',
-      icon: 'developer_board',
-      title: 'Microcontrolador ESP32',
-      description: 'O ESP32 processa os sinais dos sensores em tempo real e determina a direção do movimento (entrada ou saída).',
+      icon: 'wifi',
+      title: 'Transmissão de Dados',
+      description: 'Os dados capturados são transmitidos instantaneamente para o servidor através de conexão segura.',
       details: [
-        'Processamento em tempo real',
-        'Conectividade Wi-Fi integrada',
-        'Algoritmo de debounce inteligente',
+        'Transmissão em tempo real',
+        'Conexão Wi-Fi integrada',
+        'Conexão segura',
         'Baixa latência de resposta'
       ]
     },
     {
       number: '03',
-      icon: 'hub',
-      title: 'Protocolo MQTT',
-      description: 'Os dados são transmitidos via protocolo MQTT para o servidor, garantindo comunicação eficiente e confiável.',
-      details: [
-        'Comunicação leve e rápida',
-        'QoS configurável',
-        'Reconexão automática',
-        'Criptografia TLS/SSL'
-      ]
-    },
-    {
-      number: '04',
       icon: 'storage',
-      title: 'Servidor Node.js',
-      description: 'O servidor recebe, processa e armazena os eventos de entrada e saída no banco de dados PostgreSQL.',
+      title: 'Servidor e Processamento',
+      description: 'O servidor recebe, processa e armazena os eventos de entrada e saída no banco de dados em tempo real.',
       details: [
         'API RESTful completa',
-        'Broker MQTT (Mosquitto)',
+        'Processamento instantâneo',
         'Validação de dados',
         'Logs de auditoria'
       ]
     },
     {
-      number: '05',
+      number: '04',
       icon: 'analytics',
-      title: 'Banco de Dados',
-      description: 'PostgreSQL armazena todo o histórico de eventos, permitindo análises detalhadas e geração de relatórios.',
+      title: 'Armazenamento Seguro',
+      description: 'Banco de dados MySQL armazena todo o histórico de eventos, permitindo análises detalhadas e geração de relatórios.',
       details: [
         'Armazenamento persistente',
         'Queries otimizadas',
@@ -72,12 +60,12 @@ export class ComoFuncionaComponent implements OnInit {
       ]
     },
     {
-      number: '06',
+      number: '05',
       icon: 'dashboard',
-      title: 'Interface Web',
-      description: 'A aplicação Angular exibe os dados em tempo real com gráficos interativos e estatísticas atualizadas.',
+      title: 'Visualização em Tempo Real',
+      description: 'A aplicação Angular exibe os dados instantaneamente com gráficos interativos e estatísticas atualizadas.',
       details: [
-        'Atualização em tempo real',
+        'Atualização automática',
         'Gráficos interativos',
         'Design responsivo',
         'Interface intuitiva'
@@ -92,8 +80,8 @@ export class ComoFuncionaComponent implements OnInit {
       items: [
         { label: 'Backend', value: 'Node.js + Express' },
         { label: 'Frontend', value: 'Angular 18' },
-        { label: 'Banco de Dados', value: 'PostgreSQL 15' },
-        { label: 'MQTT Broker', value: 'Eclipse Mosquitto' }
+        { label: 'Banco de Dados', value: 'MySQL 8.0' },
+        { label: 'Protocolo', value: 'REST API' }
       ]
     }
   ];
@@ -103,22 +91,22 @@ export class ComoFuncionaComponent implements OnInit {
       {
         name: 'Camada Física',
         icon: 'sensors',
-        components: ['Sensores Infravermelhos', 'ESP32', 'Fonte de Alimentação']
+        components: ['Sensores Inteligentes', 'Sistema de Detecção', 'Alimentação']
       },
       {
         name: 'Camada de Comunicação',
         icon: 'cloud',
-        components: ['MQTT Broker', 'Wi-Fi', 'WebSocket']
+        components: ['Wi-Fi', 'Transmissão Segura', 'API REST']
       },
       {
         name: 'Camada de Aplicação',
         icon: 'layers',
-        components: ['Node.js Server', 'PostgreSQL', 'API REST']
+        components: ['Node.js Server', 'MySQL', 'Processamento de Dados']
       },
       {
         name: 'Camada de Apresentação',
         icon: 'web',
-        components: ['Angular App', 'Dashboard', 'Gráficos']
+        components: ['Angular App', 'Dashboard', 'Gráficos Interativos']
       }
     ]
   };
