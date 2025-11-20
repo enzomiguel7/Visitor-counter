@@ -43,55 +43,51 @@
 
         <section class="reports-grid">
 
+            <!-- GRÁFICO PRINCIPAL DE FLUXO (Primeira Coluna: Área com Tabela) -->
             <div class="card monthly-flow">
-                
                 <div class="card-header">
-                    <h2 class="card-title">Registro de Visitantes</h2>
+                    <h2 class="card-title">Análise de Fluxo de Pessoas</h2>
                     <div class="header-actions">
-                        <span class="date-range"></span>
+                        <span class="date-range"> </span>
                     </div>
                 </div>
-
                 <div class="card-body monthly-flow-body">
+                    <!-- Contêiner do Gráfico com Tabela -->
                     <div class="chart-container">
-    <div class="table-section">
-        <table class="visitor-table">
-            <thead>
-                <tr>
-                    <th>Id do sensor</th>
-                    <th>Tipo do sensor</th>
-                    <th>Data</th>
-                    <th>Hora</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr *ngFor="let ev of events">
-                    <td>{{ev.sensor_id}}</td>
-                    <td>{{ev.type}}</td>
-                    <td>{{ev.date_}}</td>
-                    <td>{{ev.time_}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
+                        <div class="table-section">
+                            <table class="visitor-table">
+                                <thead>
+                                    <tr>
+                                        <th>Id do sensor</th>
+                                        <th>Tipo do sensor</th>
+                                        <th>Data</th>
+                                        <th>Hora</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ev of events">
+                                        <td>{{ev.sensor_id}}</td>
+                                        <td>{{ev.type}}</td>
+                                        <td>{{ev.date_}}</td>
+                                        <td>{{ev.time_}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- CARDS DE MÉTRICAS (Segunda Coluna: APENAS HORA DE PICO) -->
             <div class="metric-cards-container">
                 <div class="card small-card metric-card">
-
                     <div class="card-header">
                         <h3 class="card-title">Horário de Pico</h3>
                     </div>
-
                     <div class="card-body big-metric-body">
                         <span class="metric-value">17:00h</span>
                         <img class="metric-illustration" src="assets/correndo.jpg" alt="Pessoa correndo">
                     </div>
-
                 </div>
             </div>
 

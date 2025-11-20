@@ -9,19 +9,19 @@
     </div>
 
     <nav class="main-nav">
-      <a routerLink="/home" class="nav-item" routerLinkActive="active">
+      <a routerLink="/content" class="nav-item" routerLinkActive="active" data-text="Início">
         <span class="material-symbols-outlined">home</span> Início
       </a>
-      <a routerLink="/relatorios" class="nav-item" routerLinkActive="active">
+      <a routerLink="/events" class="nav-item" routerLinkActive="active" data-text="Relatórios">
         <span class="material-symbols-outlined">bar_chart</span> Relatórios
       </a>
-      <a routerLink="/configuracoes" class="nav-item" routerLinkActive="active">
+      <a routerLink="/event-chart" class="nav-item" routerLinkActive="active" data-text="Configurações">
         <span class="material-symbols-outlined">settings</span> Configurações
       </a>
     </nav>
 
     <div class="sidebar-footer">
-      <a routerLink="/ajuda" class="nav-item">
+      <a routerLink="/ajuda" class="nav-item" data-text="Ajuda">
         <span class="material-symbols-outlined">help</span> Ajuda
       </a>
     </div>
@@ -130,7 +130,7 @@
               <span class="material-symbols-outlined arrow">arrow_forward</span>
             </a>
 
-            <a routerLink="/suporte" class="help-option">
+            <a href="#" class="help-option">
               <span class="material-symbols-outlined">contact_support</span>
               <div>
                 <strong>Contatar Suporte</strong>

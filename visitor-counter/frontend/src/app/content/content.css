@@ -1,19 +1,9 @@
-/* RESET E VARIÁVEIS GLOBAIS */
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
 :root {
     --color-dark-bg: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
-    --color-highlight: #667eea;
-    --color-secondary: #764ba2;
-    --color-success: #2ecc71;
-    --color-error: #e74c3c;
+    --color-highlight: #667eea; /* Cor Principal (Azul Claro) */
+    --color-secondary: #764ba2; /* Cor Secundária (Roxo) */
+    --color-success: #2ecc71; 
+    --color-error: #e74c3c; 
     --color-light-text: #ECF0F1;
     --color-main-bg: #F0F2F5;
     --color-card-bg: #FFFFFF;
@@ -29,435 +19,59 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* ESTRUTURA PRINCIPAL */
-.dashboard-container {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
+body {
     background-color: var(--color-main-bg);
 }
 
-/* ========================================
-   SIDEBAR
-   ======================================== */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/*
+=====================================
+  SIDEBAR (BARRA LATERAL)
+=====================================
+*/
 .sidebar {
-    width: clamp(180px, 18%, 250px);
+    width: 18%;
+    min-width: 180px;
+    max-width: 250px;
     background: var(--color-dark-bg);
     box-shadow: 2px 0 15px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     padding: 24px 0;
+    box-sizing: border-box;
     position: sticky;
     top: 0;
     height: 100vh;
     border-right: 1px solid var(--color-divider);
-    overflow-y: auto;
 }
 
-.logo-area {
-    display: flex;
-    align-items: center;
-    padding: 0 16px 20px 16px;
-    margin-bottom: 30px;
-}
-
-.logo-icon {
-    font-size: 30px;
-    margin-right: 8px;
-    color: var(--color-highlight);
-}
-
-.logo-text {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-text-dark);
-}
-
-.main-nav {
-    padding: 0 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex-grow: 1;
-}
-
-/* ========================================
-   BOTÕES DA SIDEBAR
-   ======================================== */
-.nav-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    font-size: 0.95em;
-    font-weight: 500;
-    color: var(--color-text-medium);
-    background: transparent;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    width: 100%;
-    text-align: left;
-}
-
-.nav-item .material-symbols-outlined {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.nav-item:hover {
-    background-color: rgba(102, 126, 234, 0.1);
-    color: var(--color-highlight);
-}
-
-.nav-item:active {
-    transform: scale(0.98);
-    background-color: rgba(102, 126, 234, 0.15);
-}
-
-.nav-item.active {
-    background: linear-gradient(135deg, var(--color-highlight), var(--color-secondary));
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-/* Sidebar footer */
 .sidebar-footer {
-    padding: 20px 12px 0 12px;
-    border-top: 1px solid var(--color-divider);
+    padding: 0 10px;
     margin-top: auto;
+    padding-top: 20px;
 }
 
-.sidebar-footer .nav-item {
-    color: #9ca3af;
-}
-
-.sidebar-footer .nav-item:hover {
-    background-color: rgba(102, 126, 234, 0.05);
-    color: var(--color-highlight);
-}
-
-/* CONTENT (ÁREA DE CONTEÚDO) */
-.content-area {
-    flex: 1;
-    padding: clamp(20px, 3vw, 32px);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    min-width: 0;
-    height: 100vh;
-}
-
-.header-toolbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: clamp(12px, 2vw, 18px) clamp(16px, 2vw, 24px);
-    background-color: var(--color-card-bg);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: clamp(16px, 2vw, 24px);
-    border-left: 5px solid var(--color-highlight);
-    flex-shrink: 0;
-}
-
-/* DASHBOARD GRID E CARDS */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(16px, 2vw, 24px);
-    flex: 1;
-    width: 100%;
-    overflow-y: auto;
-}
-
-.card {
-    background: var(--color-card-bg);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 0;
-}
-
-.card-header {
-    background: linear-gradient(135deg, var(--color-highlight), var(--color-secondary));
-    color: var(--color-light-text);
-    padding: 16px 20px;
-}
-
-.card-title {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 600;
-}
-
-/* FLOW CARD (CONTEÚDO DO CARTÃO DE FLUXO) */
-.flow-content {
-    display: flex;
-    gap: clamp(16px, 3vw, 28px);
-    flex: 1;
-    padding: clamp(16px, 2.5vw, 28px);
-    align-items: stretch;
-    justify-content: center;
-    min-height: 0;
-}
-
-.chart-placeholder {
-    flex: 1;
-    min-height: clamp(200px, 50vh, 400px);
-    border-radius: 6px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.total-indicator {
-    width: 100%;
-    max-width: clamp(160px, 20vw, 220px);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.circle-chart {
-    width: clamp(100px, 15vw, 140px);
-    height: clamp(100px, 15vw, 140px);
-    background: white;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-    position: relative;
-    margin: 0 auto;
-}
-
-.circle-chart::before {
+.sidebar-footer::before {
     content: '';
-    width: 100%;
-    height: 8px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 12px 12px 0 0;
-    background: linear-gradient(135deg, var(--color-highlight), var(--color-secondary));
+    display: block;
+    height: 1px;
+    background-color: var(--color-divider);
+    margin: 0 6px 20px 6px;
 }
 
-.total-number {
-    font-size: clamp(28px, 5vw, 48px);
-    font-weight: 700;
-}
-
-.total-label {
-    margin-top: clamp(8px, 1.5vw, 14px);
-    font-size: clamp(14px, 1.8vw, 18px);
-    font-weight: 500;
-}
-
-/* RESPONSIVIDADE (MEDIA QUERIES) */
-@media (max-width: 1024px) {
-    .flow-content {
-        flex-direction: column;
-        gap: clamp(12px, 2vw, 20px);
-    }
-
-    .total-indicator {
-        width: 100%;
-        max-width: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .dashboard-container {
-        flex-direction: column;
-        width: 100vw;
-        height: auto;
-        min-height: 100vh;
-    }
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: static;
-        flex-shrink: 1;
-        padding: 16px 0;
-        /* Removido border-right e border-bottom para tirar linha preta */
-    }
-
-    .main-nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        padding: 0 10px;
-    }
-
-    .nav-item {
-        justify-content: center;
-        flex-direction: column;
-        padding: 10px 8px;
-        font-size: 0.8em;
-    }
-
-    .nav-item .material-symbols-outlined {
-        margin-right: 0;
-        margin-bottom: 4px;
-        font-size: 20px;
-    }
-
-    .content-area {
-        height: auto;
-        min-height: calc(100vh - 120px);
-    }
-
-    .header-toolbar {
-        padding: 12px 14px;
-        margin-bottom: 14px;
-    }
-
-    .dashboard-grid {
-        gap: 12px;
-    }
-
-    .flow-content {
-        gap: 12px;
-        padding: clamp(12px, 2vw, 16px);
-    }
-
-    .card-title {
-        font-size: clamp(18px, 4vw, 22px);
-    }
-}
-/* RESET E VARIÁVEIS GLOBAIS */
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-:root {
-    --color-dark-bg: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
-    --color-highlight: #667eea;
-    --color-secondary: #764ba2;
-    --color-success: #2ecc71;
-    --color-error: #e74c3c;
-    --color-light-text: #ECF0F1;
-    --color-main-bg: #F0F2F5;
-    --color-card-bg: #FFFFFF;
-    --color-text-dark: #333;
-    --color-text-medium: #6b7280;
-    --color-divider: #e5e7eb;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* ESTRUTURA PRINCIPAL */
-.dashboard-container {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--color-main-bg);
-}
-
-/* SIDEBAR (BARRA LATERAL) */
-.sidebar {
-    width: clamp(180px, 18%, 250px);
-    background: var(--color-dark-bg);
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    padding: 24px 0;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    border-right: 1px solid var(--color-divider);
-    flex-shrink: 0;
-    overflow-y: auto;
-}
-
-/* ========================================
-   RESET E CONFIGURAÇÃO GLOBAL
-   ======================================== */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: 'Roboto', sans-serif;
-}
-
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-/* ========================================
-   VARIÁVEIS DE COR (CSS CUSTOM PROPERTIES)
-   ======================================== */
-:root {
-    --color-dark-bg: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
-    --color-highlight: #667eea;
-    --color-secondary: #764ba2;
-    --color-success: #2ecc71;
-    --color-error: #e74c3c;
-    --color-light-text: #ECF0F1;
-    --color-main-bg: #F0F2F5;
-    --color-card-bg: #FFFFFF;
-    --color-text-dark: #333;
-    --color-text-medium: #6b7280;
-    --color-divider: #e5e7eb;
-}
-
-/* ========================================
-   LAYOUT PRINCIPAL
-   ======================================== */
-body {
-    background-color: var(--color-main-bg);
-}
-
-.dashboard-container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--color-main-bg);
-}
-
-/* ========================================
-   SIDEBAR
-   ======================================== */
-.sidebar {
-    width: clamp(180px, 18%, 250px);
-    background: var(--color-dark-bg);
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    padding: 24px 0;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    border-right: 1px solid var(--color-divider);
-    overflow-y: auto;
+.sidebar-footer .nav-item {
+    color: var(--color-text-medium);
 }
 
 .logo-area {
     display: flex;
     align-items: center;
     padding: 0 16px 20px 16px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; 
 }
 
 .logo-icon {
@@ -474,29 +88,38 @@ body {
 
 .main-nav {
     padding: 0 10px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    flex-grow: 1;
 }
 
-/* ========================================
-   BOTÕES DA SIDEBAR
-   ======================================== */
 .nav-item {
     display: flex;
     align-items: center;
     padding: 12px 16px;
+    text-decoration: none;
+    color: var(--color-text-medium);
     font-size: 0.95em;
     font-weight: 500;
-    color: var(--color-text-medium);
+    transition: all 0.3s ease;
+    border-radius: 10px;
     background: transparent;
     border: none;
-    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.2s ease;
     width: 100%;
     text-align: left;
+}
+
+.nav-item:hover {
+    background-color: rgba(102, 126, 234, 0.05);
+    color: var(--color-highlight);
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-secondary) 100%);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .nav-item .material-symbols-outlined {
@@ -504,42 +127,11 @@ body {
     font-size: 20px;
 }
 
-.nav-item:hover {
-    background-color: rgba(102, 126, 234, 0.1);
-    color: var(--color-highlight);
-}
-
-.nav-item:active {
-    transform: scale(0.98);
-    background-color: rgba(102, 126, 234, 0.15);
-}
-
-.nav-item.active {
-    background: linear-gradient(135deg, var(--color-highlight), var(--color-secondary));
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-/* Sidebar footer */
-.sidebar-footer {
-    padding: 20px 12px 0 12px;
-    border-top: 1px solid var(--color-divider);
-    margin-top: auto;
-}
-
-.sidebar-footer .nav-item {
-    color: #9ca3af;
-}
-
-.sidebar-footer .nav-item:hover {
-    background-color: rgba(102, 126, 234, 0.05);
-    color: var(--color-highlight);
-}
-
-/* ========================================
-   CONTEÚDO PRINCIPAL E HEADER
-   ======================================== */
+/*
+=====================================
+  CONTEÚDO PRINCIPAL E HEADER
+=====================================
+*/
 .content-area {
     flex-grow: 1;
     padding: 20px;
@@ -548,15 +140,17 @@ body {
     overflow-y: auto;
 }
 
+
 .header-toolbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; 
     align-items: center;
     padding: 10px 20px;
     background-color: var(--color-card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
+    flex-shrink: 0;
     border-left: 5px solid var(--color-highlight);
 }
 
@@ -566,9 +160,20 @@ body {
     color: var(--color-text-dark);
 }
 
-/* ========================================
-   CARDS
-   ======================================== */
+/*
+=====================================
+  DASHBOARD CARDS (Base Theme)
+=====================================
+*/
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Simplifica para 1 coluna no início */
+    gap: 20px;
+    flex-grow: 1;
+    height: 100%;
+}
+
+/* CARD BASE */
 .card {
     background: var(--color-card-bg);
     border-radius: 12px;
@@ -588,167 +193,49 @@ body {
 
 .card-title {
     margin: 0;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
 }
 
-/* ========================================
-   RELATÓRIOS
-   ======================================== */
-.reports-grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 3fr 1fr;
-    grid-auto-rows: minmax(min-content, max-content);
+/* Card Principal de Fluxo */
+.big-card {
+    height: 100%;
 }
 
-.monthly-flow {
-    grid-column: 1 / 2;
-}
-
-.monthly-flow-body {
+.flow-content {
+    display: flex;
+    gap: 24px;
+    flex: 1;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    height: 380px;
+    align-items: stretch;
 }
 
-.chart-container {
-    flex-grow: 1;
+/* Placeholder do Gráfico */
+.chart-placeholder.line-chart {
+    flex: 1;
+    background: #FFFFFF;
+    border: 1px solid var(--color-divider);
+    border-radius: 6px;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     justify-content: center;
-    padding: 0;
-    border-left: 1px solid var(--color-divider);
-    border-bottom: 1px solid var(--color-divider);
-    background-color: #fcfcfc;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.chart-axis-labels {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    color: var(--color-text-medium);
-    font-size: 14px;
-}
-
-/* Métricas */
-.metric-cards-container {
-    grid-column: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    height: 100%;
-}
-
-.metric-card {
-    padding: 0;
-    text-align: center;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.metric-card .card-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-.big-metric-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.metric-value {
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--color-text-dark);
-    margin-bottom: 5px;
-}
-
-.caption {
-    font-size: 14px;
     color: var(--color-text-medium);
-    margin-top: 5px;
-}
-
-/* ========================================
-   TABELAS
-   ======================================== */
-.table-section {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    padding: 10px 20px;
-}
-
-.table-section h1 {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-}
-
-.visitor-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    font-size: 14px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-.visitor-table thead {
-    background: rgba(0, 0, 0, 0);
-    color: #000000; /* ou var(--color-light-text) para manter padronização */
+    position: relative;
+    min-height: 250px;
+    font-style: italic;
 }
 
 
-.visitor-table th,
-.visitor-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid var(--color-divider);
-    text-align: left;
-}
-
-.visitor-table tbody tr:nth-child(even) {
-    background: #f8f9ff;
-}
-
-.visitor-table tbody tr:hover {
-    background: #eef2ff;
-    cursor: pointer;
-}
-
-/* Rolagem suave */
-.table-section::-webkit-scrollbar {
-    width: 8px;
-}
-
-.table-section::-webkit-scrollbar-thumb {
-    background: #bfc5d8;
-    border-radius: 4px;
-}
-
-.table-section::-webkit-scrollbar-thumb:hover {
-    background: #a7aec4;
-}
-
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
+/*
+=====================================
+  RESPONSIVIDADE (MOBILE/TABLET)
+=====================================
+*/
 @media (max-width: 1024px) {
-    .reports-grid {
-        grid-template-columns: 1fr;
-    }
-    .monthly-flow,
-    .metric-cards-container {
-        grid-column: 1 / -1;
+    .flow-content {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -756,42 +243,58 @@ body {
     .dashboard-container {
         flex-direction: column;
     }
-
     .sidebar {
         width: 100%;
         height: auto;
         position: static;
+        max-width: none;
+        min-width: 0;
         padding-bottom: 0;
     }
-
     .main-nav {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 5px;
         padding: 10px 0;
+        gap: 5px;
     }
-
     .nav-item {
         flex-basis: 30%;
         justify-content: center;
         margin: 5px;
         padding: 10px;
+    }
+    .nav-item span {
+        /* Esconde o texto no mobile, mantendo apenas o ícone */
+        display: none; 
+    }
+    .nav-item:before {
+        /* Exibe o nome do item abaixo do ícone */
+        content: attr(data-text); 
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        margin-top: 5px;
         text-align: center;
     }
-
-    .sidebar-footer {
-        display: none;
+    /* Corrige o .nav-item:before para não aparecer no desktop */
+    .nav-item .material-symbols-outlined {
+        margin-right: 0;
     }
-
     .logo-area {
         justify-content: center;
         margin-bottom: 10px;
         padding-bottom: 10px;
         border-bottom: 1px solid var(--color-divider);
     }
-
+    .sidebar-footer {
+        display: none;
+    }
     .content-area {
         padding: 10px;
+    }
+    /* Garante que o ícone fique centralizado no mobile */
+    .nav-item {
+        flex-direction: column;
     }
 }
