@@ -71,6 +71,7 @@ logout() {
           alert("Conta excluída com sucesso!");
           localStorage.removeItem('token');
           this.router.navigate(['/home']);
+          this.userService.clearUser();
         },
         error: (err) => {
           console.error(err);
