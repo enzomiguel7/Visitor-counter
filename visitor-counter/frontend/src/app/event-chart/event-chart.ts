@@ -55,6 +55,10 @@ export class EventChart implements OnInit {
     this.router.navigate(['/central-de-ajuda']);
   }
 
+  contactSupport() {
+    window.location.href = 'mailto:senseflow80@gmail.com?subject=Suporte SenseFlow - Solicitação de Ajuda&body=Olá equipe SenseFlow,%0D%0A%0D%0AEstou entrando em contato para solicitar ajuda com:%0D%0A%0D%0A';
+  }
+
   
 logout() {
     this.userService.clearUser(); // Limpa o estado

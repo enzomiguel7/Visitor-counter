@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {
       question: 'O que é o SenseFlow e como funciona?',
       answer: 'O SenseFlow é uma plataforma de análise de fluxo de pessoas que utiliza sensores inteligentes para monitorar em tempo real a movimentação em espaços físicos. Os dados são processados e apresentados em dashboards intuitivos, permitindo decisões baseadas em dados concretos.',
-      isOpen: false
+      isOpen: true
     },
     {
       question: 'Quais tipos de espaços podem usar o SenseFlow?',
