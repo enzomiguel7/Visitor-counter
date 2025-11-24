@@ -320,6 +320,14 @@ body {
     margin-bottom: 5px;
 }
 
+.metric-illustration {
+    max-width: 245px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-top: 10px;
+}
+
 .caption {
     font-size: 14px;
     color: var(--color-text-medium);
