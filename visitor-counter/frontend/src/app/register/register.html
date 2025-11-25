@@ -85,12 +85,10 @@
                 </div>
 
                 <!-- Terms Checkbox -->
-                <div class="form-options">
-                    <label class="terms-check">
-                        <input type="checkbox" [(ngModel)]="acceptTerms" name="acceptTerms" required>
-                        <span>Aceito os <a href="#" class="terms-link">termos e condições</a></span>
-                    </label>
-                </div>
+                <button (click)="redirectToTermo()" class="terms-button">
+  Aceito os <a routerLink="/termos" class="terms-link" (click)="$event.stopPropagation()">termos e condições</a>
+</button>
+
 
                 <!-- Register Button -->
                 <button 

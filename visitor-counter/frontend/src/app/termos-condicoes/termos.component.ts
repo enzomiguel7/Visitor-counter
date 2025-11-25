@@ -1,4 +1,4 @@
-
+import { Router } from '@angular/router';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +10,12 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./termos.css']
 })
 export class TermosComponent {
+
+  
+    constructor( 
+      private router: Router
+    ) {}
+
   @Output() accepted = new EventEmitter<void>();
   @Output() closed = new EventEmitter<void>();
 
@@ -19,5 +25,8 @@ export class TermosComponent {
 
   close() {
     this.closed.emit();
+  }
+  redirectToRegister() {
+    this.router.navigate(['/register']);
   }
 }
