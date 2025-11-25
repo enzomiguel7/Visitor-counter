@@ -132,6 +132,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    height: 100vh;
 }
 
 .header-toolbar {
@@ -202,7 +203,7 @@ body {
 
 .card-title {
     margin: 0;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
 }
 
@@ -211,13 +212,17 @@ body {
     display: grid;
     gap: 20px;
     grid-template-columns: 3fr 1fr; 
-    grid-auto-rows: minmax(min-content, max-content);
+    grid-template-rows: 1fr;
     flex-grow: 1;
+    min-height: 0;
 }
 
 .monthly-flow {
     grid-column: 1 / 2;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 .monthly-flow .card-header {
@@ -230,7 +235,7 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    height: 380px; /* Altura fixa */
+    flex-grow: 1;
 }
 
 /* TABELA COM SCROLL */
@@ -288,7 +293,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 100%;
 }
 
 .metric-card {
@@ -297,6 +301,7 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .metric-card .card-header {
@@ -309,7 +314,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0;
+    justify-content: center;
+    padding: 20px;
+    flex-grow: 1;
 }
 
 .metric-value {
@@ -403,4 +410,46 @@ body {
     width: 100%;
     flex-grow: 1; /* ocupa todo o espaço do chart-container */
     overflow-y: auto;
+}
+
+/* MODO NOTURNO - Tabela de Eventos */
+body.dark-mode .chart-container {
+    background-color: #1a1f2e;
+    border-left: 1px solid #2d3748;
+    border-bottom: 1px solid #2d3748;
+}
+
+body.dark-mode .visitor-table {
+    background: #1a1f2e;
+}
+
+body.dark-mode .visitor-table thead {
+    background: rgba(124, 58, 237, 0.15);
+    color: #e4e6eb;
+}
+
+body.dark-mode .visitor-table th,
+body.dark-mode .visitor-table td {
+    border-bottom: 1px solid #2d3748;
+    color: #e4e6eb;
+}
+
+body.dark-mode .visitor-table tbody tr:nth-child(even) {
+    background: #1f2533;
+}
+
+body.dark-mode .visitor-table tbody tr:hover {
+    background: #252b3b;
+}
+
+body.dark-mode .table-section::-webkit-scrollbar-thumb {
+    background: #4b5563;
+}
+
+body.dark-mode .table-section::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+body.dark-mode .table-section::-webkit-scrollbar-track {
+    background: #1f2533;
 }
