@@ -60,4 +60,8 @@ export class RegisterComponent {
     this.message = msg;
     this.isError = error;
   }
+  redirectToTermo() {
+    this.router.navigate(['/termos-condicoes']);
+  }
+  
 }

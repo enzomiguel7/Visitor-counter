@@ -9,8 +9,8 @@ import mariadb from "mariadb";
 /* ============ MariaDB ============ */
 const pool = mariadb.createPool({
   host: process.env.DB_HOST || "mariadb",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASS || "0",
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   database: process.env.DB_NAME || "RegistrosSensor",
   connectionLimit: 10
 });
@@ -25,7 +25,10 @@ const io = new SocketIOServer(server, { cors: { origin: "*" } });
 
 /* ============ MQTT ============ */
 const mqttUrl = process.env.MQTT_BROKER_URL || "mqtt://mosquitto:1883";
-const client = mqtt.connect(mqttUrl);
+const client = mqtt.connect(mqttUrl, {
+  username: process.env.MQTT_USER,
+  password: process.env.MQTT_PASS
+});
 
 client.on("connect", () => {
   console.log("✅ MQTT conectado em:", mqttUrl);

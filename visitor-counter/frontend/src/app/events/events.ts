@@ -53,6 +53,8 @@ export class EventsComponent implements OnInit {
     this.router.navigate(['/charts']);
   }
 
+  
+
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/home']);
