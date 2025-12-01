@@ -59,7 +59,7 @@ export class RegisterComponent {
   showMessage(msg: string, error: boolean) {
     this.message = msg;
     this.isError = error;
-  }
+  }// comentario de teste
   redirectToTermo() {
     this.router.navigate(['/termos-condicoes']);
   }

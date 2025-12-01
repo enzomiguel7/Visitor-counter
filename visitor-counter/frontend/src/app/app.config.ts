@@ -14,5 +14,6 @@ export const appConfig: ApplicationConfig = {
     
     // 💡 ESTAVA FALTANDO ESTA LINHA:
     provideHttpClient() 
+    //comentario de teste
   ]
 };
