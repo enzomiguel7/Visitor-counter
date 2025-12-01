@@ -1,4 +1,7 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
 
 # Compiled output
 /dist
@@ -6,16 +9,10 @@
 /out-tsc
 /bazel-out
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
-
 # IDEs and editors
 .idea/
 .project
 .classpath
-.c9/
 *.launch
 .settings/
 *.sublime-workspace
@@ -36,11 +33,18 @@ yarn-error.log
 testem.log
 /typings
 *.tsbuildinfo
+backend/mosquitto/config/passwd
 
-# Angular cache (correto!)
+# Angular cache
 frontend/.angular/
 
 # System files
 .DS_Store
 Thumbs.db
 .env
+
+# Terraform
+infra/.terraform/
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+infra/.terraform.lock.hcl
