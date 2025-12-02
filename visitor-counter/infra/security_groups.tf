@@ -1,7 +1,7 @@
 # Security Group do Backend ECS
 resource "aws_security_group" "sg_backend" {
   name        = "senseflow-backend-sg"
-  description = "Permite acesso ao backend e comunicação interna"
+  description = "Permite acesso ao backend e comunicacao interna"
   vpc_id      = aws_vpc.senseflow_vpc.id
 
   # Permitir acesso HTTP ao backend (3000)
@@ -28,7 +28,7 @@ resource "aws_security_group" "sg_backend" {
 # Security Group do Mosquitto
 resource "aws_security_group" "sg_mosquitto" {
   name        = "senseflow-mosquitto-sg"
-  description = "Permite conexões MQTT internas"
+  description = "Permite conexoes MQTT internas"
   vpc_id      = aws_vpc.senseflow_vpc.id
 
   # O backend ECS poderá conectar no mosquitto
