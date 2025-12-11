@@ -77,36 +77,55 @@ export class ContentComponent implements OnInit {
         this.chartOptions = null;
         return;
       }
-
+      
       this.chartOptions = {
-        series: sortedKeys.map(k => grouped[k]),
-        chart: {
-          type: 'pie',
-          height: 480
-        },
-        labels: sortedKeys,
-        title: {
-          text: 'Distribuição de Eventos por Horário'
-        },
-        legend: {
-          position: 'right',
-          fontSize: '18px',
-          markers: {
-            width: 16,
-            height: 16
-          },
-          itemMargin: {
-            horizontal: 12,
-            vertical: 12
-          }
-        },
-        dataLabels: {
-          style: {
-            fontSize: '18px',
-            fontWeight: 'bold'
-          }
-        }
-      };
+  series: sortedKeys.map(k => grouped[k]),
+  chart: {
+    type: 'pie',
+    height: 480
+  },
+  labels: sortedKeys,
+
+  theme: {
+    mode: 'dark'
+  },
+
+  colors: [
+    "#667eea", "#764ba2", "#2ecc71", "#e74c3c", "#f1c40f",
+    "#1abc9c", "#9b59b6", "#34495e", "#e67e22", "#16a085",
+    "#8e44ad", "#2980b9", "#c0392b", "#27ae60", "#d35400",
+    "#7f8c8d", "#f39c12", "#3f51b5", "#009688", "#c2185b",
+    "#03a9f4", "#8bc34a", "#ff9800", "#795548", "#607d8b",
+    "#ad1457", "#6a1b9a", "#00838f", "#2e7d32", "#b71c1c"
+  ],
+
+  fill: {
+    colors: [
+      "#667eea", "#764ba2", "#2ecc71", "#e74c3c", "#f1c40f",
+      "#1abc9c", "#9b59b6", "#34495e", "#e67e22", "#16a085",
+      "#8e44ad", "#2980b9", "#c0392b", "#27ae60", "#d35400",
+      "#7f8c8d", "#f39c12", "#3f51b5", "#009688", "#c2185b",
+      "#03a9f4", "#8bc34a", "#ff9800", "#795548", "#607d8b",
+      "#ad1457", "#6a1b9a", "#00838f", "#2e7d32", "#b71c1c"
+    ]
+  },
+
+  title: {
+    text: 'Eventos por Hora',
+    align: 'center',
+    style: { color: '#fff' }
+  },
+
+  legend: {
+    position: 'bottom',
+    labels: { colors: '#fff' }
+  },
+
+  dataLabels: {
+    enabled: true
+  }
+};
+
     });
   }
   
